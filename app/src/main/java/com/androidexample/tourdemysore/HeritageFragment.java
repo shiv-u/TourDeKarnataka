@@ -28,11 +28,11 @@ public class HeritageFragment extends Fragment {
         View rootView = inflater.inflate(R.layout.list, container, false);
 
         ArrayList<Info> places = new ArrayList<>();
-        places.add(new Info("Mysuru", R.drawable.palace, 5));
-        places.add(new Info("Hampi", R.drawable.hampi, 4));
-        places.add(new Info("Belur", R.drawable.belur, 4));
-        places.add(new Info("Pattadkal", R.drawable.pattadkal, 5));
-        places.add(new Info("Gol Gumbaz", R.drawable.gol, 4));
+        places.add(new Info(getString(R.string.mysuru), R.drawable.palace, 5));
+        places.add(new Info(getString(R.string.hampi), R.drawable.hampi, 4));
+        places.add(new Info(getString(R.string.belur), R.drawable.belur, 4));
+        places.add(new Info(getString(R.string.pattadkall), R.drawable.pattadkal, 5));
+        places.add(new Info(getString(R.string.gol_gumbaz), R.drawable.gol, 4));
 
         final InfoAdapter infoAdapter = new InfoAdapter(getActivity(), places);
 
@@ -43,7 +43,7 @@ public class HeritageFragment extends Fragment {
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
 
                 Intent search = new Intent(Intent.ACTION_VIEW);
-                String url = "https://www.google.com/search?q=";
+                String url =getString(R.string.query);
                 search.setData(Uri.parse(url + infoAdapter.getItem(position).getmPlace()));
                 startActivity(search);
             }

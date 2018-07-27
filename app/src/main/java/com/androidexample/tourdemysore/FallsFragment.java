@@ -28,10 +28,10 @@ public class FallsFragment extends Fragment {
         View rootView = inflater.inflate(R.layout.list, container, false);
         ArrayList<Info> falls = new ArrayList<>();
 
-        falls.add(new Info("Jog Falls", R.drawable.jog, 5));
-        falls.add(new Info("Abbey Falls", R.drawable.abbey, 4));
-        falls.add(new Info("Barachukki Falls", R.drawable.chukki, 4));
-        falls.add(new Info("Gokak Falls", R.drawable.gokak, 5));
+        falls.add(new Info(getString(R.string.Jog), R.drawable.jog, 5));
+        falls.add(new Info(getString(R.string.Abbey), R.drawable.abbey, 4));
+        falls.add(new Info(getString(R.string.Barachukki), R.drawable.chukki, 4));
+        falls.add(new Info(getString(R.string.Gokak), R.drawable.gokak, 5));
 
         ListView listView = rootView.findViewById(R.id.list_view);
 
@@ -42,7 +42,7 @@ public class FallsFragment extends Fragment {
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
 
                 Intent search = new Intent(Intent.ACTION_VIEW);
-                String url = "http://www.google.com/search?q=";
+                String url =getString(R.string.query);
                 search.setData(Uri.parse(url + infoAdapter.getItem(position).getmPlace()));
                 startActivity(search);
             }

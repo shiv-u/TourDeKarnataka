@@ -28,10 +28,10 @@ public class CuisineFragment extends Fragment {
         View rootView = inflater.inflate(R.layout.list, container, false);
         final ArrayList<Info> cuisine = new ArrayList<>();
 
-        cuisine.add(new Info("Dosa", R.drawable.dosa2, 5));
-        cuisine.add(new Info("Hobbatu", R.drawable.hobbatu, 4));
-        cuisine.add(new Info("Rotti", R.drawable.rotti, 4));
-        cuisine.add(new Info("Idli", R.drawable.idli, 3));
+        cuisine.add(new Info(getString(R.string.Dosa), R.drawable.dosa2, 5));
+        cuisine.add(new Info(getString(R.string.Hobbatu), R.drawable.hobbatu, 4));
+        cuisine.add(new Info(getString(R.string.Rotti), R.drawable.rotti, 4));
+        cuisine.add(new Info(getString(R.string.Idli), R.drawable.idli, 3));
 
 
         ListView listView = rootView.findViewById(R.id.list_view);
@@ -43,7 +43,7 @@ public class CuisineFragment extends Fragment {
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
 
                 Intent search = new Intent(Intent.ACTION_VIEW);
-                String url = "http://www.google.com/search?q=";
+                String url = getString(R.string.query);
                 search.setData(Uri.parse(url + infoAdapter.getItem(position).getmPlace()));
                 startActivity(search);
 

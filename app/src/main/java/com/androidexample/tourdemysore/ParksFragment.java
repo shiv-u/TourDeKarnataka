@@ -26,10 +26,10 @@ public class ParksFragment extends Fragment {
         View rootView = inflater.inflate(R.layout.list, container, false);
         ArrayList<Info> parks = new ArrayList<>();
 
-        parks.add(new Info("Bandipur National Park", R.drawable.bandipur, 3));
-        parks.add(new Info("Nagarahole National Park", R.drawable.nagarahole, 4));
-        parks.add(new Info("Kali Tiger Reserve", R.drawable.kali, 5));
-        parks.add(new Info("Bhadra Reserve Forest", R.drawable.bhadra, 5));
+        parks.add(new Info(getString(R.string.bandipur), R.drawable.bandipur, 3));
+        parks.add(new Info(getString(R.string.nagarahole), R.drawable.nagarahole, 4));
+        parks.add(new Info(getString(R.string.kali), R.drawable.kali, 5));
+        parks.add(new Info(getString(R.string.bhadra), R.drawable.bhadra, 5));
 
         ListView listView = rootView.findViewById(R.id.list_view);
 
@@ -39,7 +39,7 @@ public class ParksFragment extends Fragment {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 Intent search = new Intent(Intent.ACTION_VIEW);
-                String url = "https://www.google.com/search?q=";
+                String url = getString(R.string.query);
                 search.setData(Uri.parse(url + infoAdapter.getItem(position).getmPlace()));
                 startActivity(search);
             }
